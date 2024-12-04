@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://2aodwb4hfc2u"]
+
+[ext_resource type="Texture2D" uid="uid://daptcv3glr2nf" path="res://Assets/Sprites/Knight/Knight-Idle.png" id="1_5nt87"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n73pr"]
+atlas = ExtResource("1_5nt87")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_736ju"]
+atlas = ExtResource("1_5nt87")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8kjy4"]
+atlas = ExtResource("1_5nt87")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6e3x"]
+atlas = ExtResource("1_5nt87")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tslii"]
+atlas = ExtResource("1_5nt87")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jn07n"]
+atlas = ExtResource("1_5nt87")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_poiur"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n73pr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_736ju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8kjy4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6e3x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tslii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jn07n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qxdmi"]
+radius = 7.0
+height = 18.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+scale = Vector2(4.1172, 4.1172)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_poiur")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_qxdmi")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+process_callback = 0
