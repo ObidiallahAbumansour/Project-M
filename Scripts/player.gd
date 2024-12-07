@@ -3,6 +3,7 @@ extends CharacterBody2D
 const SPEED = 200
 const JUMP_VELOCITY = -350
 
+
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
@@ -27,14 +28,18 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += (gravity * 1.25) * delta
 	
+	#makes player jump
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+	
 	#player movement
 	if is_on_floor():
 		if !velocity:
 			sprite.play("default")
 		else:
 			sprite.play("walk")
-	#elif !is_on_floor():
-	#	sprite.play("Jump")
+	elif !is_on_floor():
+		sprite.play("jump")
 	
 	velocity.x = direction * SPEED
 	

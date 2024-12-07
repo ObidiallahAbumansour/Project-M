@@ -1,10 +1,66 @@
-[gd_scene load_steps=2 format=3 uid="uid://dlyr56kasoijm"]
+[gd_scene load_steps=10 format=3 uid="uid://dlyr56kasoijm"]
+
+[ext_resource type="Texture2D" uid="uid://ci21xp23kpu1p" path="res://Assets/Sprites/Wizard/Wizard-Idle.png" id="1_0g7he"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvkvg"]
+atlas = ExtResource("1_0g7he")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ptnl"]
+atlas = ExtResource("1_0g7he")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m42xb"]
+atlas = ExtResource("1_0g7he")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlpuy"]
+atlas = ExtResource("1_0g7he")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8tn1"]
+atlas = ExtResource("1_0g7he")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5xrq"]
+atlas = ExtResource("1_0g7he")
+region = Rect2(500, 0, 100, 100)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wk8fo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvkvg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ptnl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m42xb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlpuy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8tn1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5xrq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x71vp"]
+radius = 5.0
+height = 18.0
 
 [node name="necromancer" type="CharacterBody2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wk8fo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("CapsuleShape2D_x71vp")
