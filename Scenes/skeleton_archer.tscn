@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1j7y2soy0mc1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_glb7u"]
+
+[node name="skeleton_archer" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_glb7u")
