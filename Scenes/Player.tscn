@@ -331,8 +331,8 @@ animations = [{
 radius = 7.0
 height = 18.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_yd8si"]
-radius = 12.6842
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cpvfe"]
+size = Vector2(16.6667, 17.3333)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pt3f7"]
 size = Vector2(24, 24)
@@ -358,8 +358,9 @@ position = Vector2(69.9999, -12)
 scale = Vector2(3, 3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player hitbox"]
-position = Vector2(-21.3333, 2)
-shape = SubResource("CircleShape2D_yd8si")
+position = Vector2(-23.6666, 2)
+shape = SubResource("RectangleShape2D_cpvfe")
+debug_color = Color(0.777799, 0.438963, 7.70092e-07, 0.42)
 
 [node name="Attack_hitbox" type="Area2D" parent="."]
 position = Vector2(0, -6)

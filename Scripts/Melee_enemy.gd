@@ -4,7 +4,8 @@ extends CharacterBody2D
 @onready var animated_sprite = $AnimatedSprite2D
 
 
-const SPEED = 100
+const SPEED = 0
+
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var current_attack = false
