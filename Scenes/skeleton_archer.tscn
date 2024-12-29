@@ -222,12 +222,25 @@ radius = 7.0
 height = 20.0
 
 [node name="skeleton_archer" type="CharacterBody2D"]
+scale = Vector2(1.5, 1.5)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_glb7u")
 animation = &"walk"
 
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 16.0
+offset_top = -67.0
+offset_right = 167.0
+offset_bottom = -15.0
+text = "Stationary will have far away vision"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -1)
 scale = Vector2(0.847172, 1)
 shape = SubResource("CapsuleShape2D_qbt78")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+rotation = -1.57079
+target_position = Vector2(5.77529e-05, 26)

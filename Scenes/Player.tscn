@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://2aodwb4hfc2u"]
+[gd_scene load_steps=53 format=3 uid="uid://2aodwb4hfc2u"]
 
 [ext_resource type="Texture2D" uid="uid://daptcv3glr2nf" path="res://Assets/Sprites/Knight/Knight-Idle.png" id="1_5nt87"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_336g2"]
@@ -331,20 +331,40 @@ animations = [{
 radius = 7.0
 height = 18.0
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pt3f7"]
+size = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jnii4"]
+size = Vector2(12.6667, 24.6667)
+
+[node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_336g2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_poiur")
-animation = &"block"
-frame_progress = 0.225219
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -6)
 scale = Vector2(3, 3)
 shape = SubResource("CapsuleShape2D_qxdmi")
+
+[node name="Attack_hitbox" type="Area2D" parent="."]
+position = Vector2(0, -6)
+scale = Vector2(3, 3)
+
+[node name="Ult" type="CollisionShape2D" parent="Attack_hitbox"]
+visible = false
+position = Vector2(23.3333, -2)
+shape = SubResource("RectangleShape2D_pt3f7")
+debug_color = Color(0.89086, 0.30824, 0.272561, 0.42)
+
+[node name="Normal" type="CollisionShape2D" parent="Attack_hitbox"]
+visible = false
+position = Vector2(15, -3)
+shape = SubResource("RectangleShape2D_jnii4")
+debug_color = Color(0.812688, 0.372999, 0.454172, 0.42)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(42, -54)

@@ -57,6 +57,7 @@ radius = 5.0
 height = 18.0
 
 [node name="necromancer" type="CharacterBody2D"]
+scale = Vector2(2, 2)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wk8fo")
@@ -64,3 +65,14 @@ sprite_frames = SubResource("SpriteFrames_wk8fo")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)
 shape = SubResource("CapsuleShape2D_x71vp")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 10.0
+offset_top = -93.0
+offset_right = 178.0
+offset_bottom = -37.0
+text = "Attacks/movement have set patterns"
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+rotation = -1.57079
+target_position = Vector2(5.77529e-05, 26)
