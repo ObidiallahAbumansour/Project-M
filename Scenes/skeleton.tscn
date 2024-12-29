@@ -1,5 +1,6 @@
-[gd_scene load_steps=34 format=3 uid="uid://d0dhixdi1mno7"]
+[gd_scene load_steps=35 format=3 uid="uid://d0dhixdi1mno7"]
 
+[ext_resource type="Script" path="res://Scripts/Melee_enemy.gd" id="1_61m4h"]
 [ext_resource type="Texture2D" uid="uid://cmwo3j8mhsrqi" path="res://Assets/Sprites/Skeleton/Skeleton/Skeleton-Attack01.png" id="1_ehnpo"]
 [ext_resource type="Texture2D" uid="uid://du5ustpemqes7" path="res://Assets/Sprites/Skeleton/Skeleton/Skeleton-Idle.png" id="2_5nnha"]
 [ext_resource type="Texture2D" uid="uid://laahxo3miw4d" path="res://Assets/Sprites/Skeleton/Skeleton/Skeleton-Attack02.png" id="3_sohn4"]
@@ -222,11 +223,30 @@ radius = 6.0
 height = 16.0
 
 [node name="Skeleton" type="CharacterBody2D"]
+light_mask = 4
+visibility_layer = 4
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_61m4h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gs8oc")
 animation = &"attack"
 
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 14.0
+offset_top = -56.0
+offset_right = 120.0
+offset_bottom = -10.0
+text = "Simple patrol"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 4
+visibility_layer = 2
 position = Vector2(1, 0)
 shape = SubResource("CapsuleShape2D_f56gi")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+rotation = -1.57079
+target_position = Vector2(5.77529e-05, 26)
+collision_mask = 6

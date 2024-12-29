@@ -1,8 +1,9 @@
-[gd_scene load_steps=30 format=3 uid="uid://dqlgb3boamxqc"]
+[gd_scene load_steps=31 format=3 uid="uid://dqlgb3boamxqc"]
 
 [ext_resource type="Texture2D" uid="uid://3su2ae0nvw54" path="res://Assets/Sprites/Greatsword Skeleton/Greatsword Skeleton-Idle.png" id="1_8y3tx"]
 [ext_resource type="Texture2D" uid="uid://d1267kqhl8dxi" path="res://Assets/Sprites/Greatsword Skeleton/Greatsword Skeleton-Attack01.png" id="1_nahto"]
 [ext_resource type="Texture2D" uid="uid://bv4un8864rnle" path="res://Assets/Sprites/Greatsword Skeleton/Greatsword Skeleton-Walk.png" id="3_66y0o"]
+[ext_resource type="Script" path="res://Scripts/Melee_enemy.gd" id="4_s2hwg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n3va6"]
 atlas = ExtResource("1_nahto")
@@ -195,11 +196,29 @@ radius = 6.55377
 height = 17.5123
 
 [node name="skeleton_greatsword" type="CharacterBody2D"]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("4_s2hwg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wr12v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 4
+visibility_layer = 4
 position = Vector2(2, -3)
 scale = Vector2(0.915503, 1.25626)
 shape = SubResource("CapsuleShape2D_16klq")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 23.0
+offset_top = -81.0
+offset_right = 123.0
+offset_bottom = -27.0
+text = "Irregular pathfinding"
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+light_mask = 4
+visibility_layer = 4
+rotation = -1.57079
+target_position = Vector2(5.77529e-05, 26)
+collision_mask = 6

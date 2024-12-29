@@ -1,6 +1,7 @@
-[gd_scene load_steps=38 format=3 uid="uid://0vb08027h6h1"]
+[gd_scene load_steps=39 format=3 uid="uid://0vb08027h6h1"]
 
 [ext_resource type="Texture2D" uid="uid://mijhepdoujhl" path="res://Assets/Sprites/Armored Skeleton/Armored Skeleton-Attack01.png" id="1_4k6bb"]
+[ext_resource type="Script" path="res://Scripts/Melee_enemy.gd" id="1_g68y5"]
 [ext_resource type="Texture2D" uid="uid://bq4lrutenl0aw" path="res://Assets/Sprites/Armored Skeleton/Armored Skeleton-Idle.png" id="2_63mnt"]
 [ext_resource type="Texture2D" uid="uid://v213pwi58cu1" path="res://Assets/Sprites/Armored Skeleton/Armored Skeleton-Attack02.png" id="3_l3hbw"]
 [ext_resource type="Texture2D" uid="uid://ckbr05klrhvhr" path="res://Assets/Sprites/Armored Skeleton/Armored Skeleton-Walk.png" id="4_trp2t"]
@@ -250,11 +251,30 @@ radius = 5.0
 height = 16.0
 
 [node name="Skeleton_armored" type="CharacterBody2D"]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_g68y5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jrobn")
 frame_progress = 0.490778
 
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 30.0
+offset_top = -72.0
+offset_right = 145.0
+offset_bottom = -26.0
+text = "Short patrol"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 4
+visibility_layer = 4
 position = Vector2(2, -1)
 shape = SubResource("CapsuleShape2D_qe5xw")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+light_mask = 4
+visibility_layer = 4
+rotation = -1.57079
+target_position = Vector2(0, 25)
+collision_mask = 6
