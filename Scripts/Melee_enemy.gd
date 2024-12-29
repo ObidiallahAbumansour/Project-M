@@ -10,6 +10,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var current_attack = false
 var direction = 1
 
+func enemy():
+	pass
+
 func _physics_process(delta):
 	
 	#direction
