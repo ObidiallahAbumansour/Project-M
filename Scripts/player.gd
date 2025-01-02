@@ -6,10 +6,12 @@ var enemey_AtckRange = false
 var enemy_AtckCooldwon = true
 var HEALTH = 100
 var player_alive = true
-# var zome :=Vector2(2, 2)
+var slowDownDeath = 0.1
+var zome :=Vector2(2, 2)
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+@onready var canvas_modulate: CanvasModulate = $"../CanvasModulate"
 @onready var camera_2d: Camera2D = $Camera2D
 @onready var sprite = $AnimatedSprite2D
 
@@ -36,13 +38,16 @@ func _physics_process(delta):
 	# check if the player is still alive
 	# we need to add death sence and motion
 	if HEALTH <= 0:
-		player_alive = false
-		HEALTH = 0 
-		get_tree().reload_current_scene()
-		# // death_timer.start() -- when the death timer timedout 
-		# // we need to run the reload method on to rest the game 
-		#camera_2d.set_zoom(zome)
-		#Engine.time_scale = 0.3
+		Engine.time_scale = slowDownDeath # slow mtion to the game 
+		player_alive = false # make the player died 
+		camera_2d.set_zoom(zome) # zome the camera to the palyer 
+		canvas_modulate.set_visible(true) # make the red screen visible
+		get_node("CollisionShape2D").queue_free() # make the player fall
+		set_z_index(5) # make the player z index 5 to make him in front of the ground and background
+		$"death timer".start() # start timer to rest the game 
+		# next to do !! 
+		# a game over screen to rest the game instaed of the death timer 
+		# and make the death timer game over timer !!!!
 
 	
 	
@@ -66,6 +71,7 @@ func _physics_process(delta):
 			sprite.play("walk")
 	elif !is_on_floor():
 		sprite.play("jump")
+		
 	
 	velocity.x = direction * SPEED
 	
@@ -94,5 +100,9 @@ func enemy_attack():
 
 func _on_attack_cooldown_timeout() -> void:
 	enemy_AtckCooldwon = true
-	 
-# test1 
+ 
+
+# the death timer maybe will change the futuer 
+func _on_death_timer_timeout() -> void:
+	Engine.time_scale = 1
+	get_tree().reload_current_scene()

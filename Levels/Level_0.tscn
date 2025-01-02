@@ -3541,3 +3541,7 @@ text = "AFK"
 
 [node name="Skeleton" parent="." instance=ExtResource("10_wnd7h")]
 position = Vector2(526, 127)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color(0.643727, 0.102821, 4.81308e-08, 1)
