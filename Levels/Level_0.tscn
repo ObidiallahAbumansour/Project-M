@@ -3405,7 +3405,7 @@ size = Vector2(20, 59)
 [node name="Node2D" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("6_btj5r")]
-position = Vector2(117, 132)
+position = Vector2(42, 102)
 collision_layer = 9
 collision_mask = 9
 
@@ -3540,4 +3540,4 @@ offset_bottom = -69.0
 text = "AFK"
 
 [node name="Skeleton" parent="." instance=ExtResource("10_wnd7h")]
-position = Vector2(526, 127)
+position = Vector2(669, 133)
